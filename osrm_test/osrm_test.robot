@@ -5,7 +5,7 @@ Library     osrm_test.py
 *** Test Cases ***
 OSRM TEST DISTANCE
             ${r}    Try Endpoint    %{osrm_test_host}  %{osrm_test_port}
-            ${source data}=    Evaluate     json.loads("""${r}""")    json
+            ${source data}=    Evaluate      json.loads("""${r}""")    json
             ${distance}=    Set Variable     ${source data['routes'][0]['distance']}
             IF      '''${r}''' != None
             Should Be True       ${distance} >= 0

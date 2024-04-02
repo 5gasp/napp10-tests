@@ -8,7 +8,7 @@ def try_endpoint(host, port):
         r = requests.get(url=url, headers=headers)
         if not r.ok:
             return 'ERROR'
-        return r.json()  # We assume that this endpoint will return a JSON response
+        return str(r.json()).replace("'", "\"")  # We assume that this endpoint will return a JSON response
     except Exception as e:
         print(e)
         return 'ERROR'
